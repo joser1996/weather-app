@@ -1,4 +1,3 @@
-import logo from "../icons/01d.png";
 
 const WeatherCard = (props) => {
     
@@ -9,15 +8,22 @@ const WeatherCard = (props) => {
         return weekdays[dayNumber];
     };
 
-
+    const { icon } = props.weatherProps;
+    const getIcon = (id) => {
+        let baseUrl = "http://openweathermap.org/img/w"
+        return baseUrl + `/${id}.png`
+    }
     return(
         <div className="weather-card">
             <h2>{getDay()}</h2>
             <h3>{props.weatherProps.main}</h3>
             <div className="weather-icon">
-                <img alt="icon" src={logo} />
+                <img 
+                    src={icon ? getIcon(icon) : ""}
+                    alt="Icon"   
+                />
             </div>
-            <h3>{props.weatherProps.temp}°F</h3>
+            <h2 id="temp">{props.weatherProps.temp}°F</h2>
             <h3 style={{textTransform: "capitalize"}}>{props.weatherProps.description}</h3>
         </div>       
     );

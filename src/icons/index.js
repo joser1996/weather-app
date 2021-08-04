@@ -1,0 +1,20 @@
+export const oneD = require('./01d.png');
+export const oneN = require('./01n.png');
+export const twoD = require('./02d.png');
+export const twoN = require('./02n.png');
+export const threeD = require('./03d.png');
+export const threeN = require('./03n.png');
+export const fourD = require('./04d.png');
+export const fourN = require('./04n.png');
+export const nineD = require('./09d.png');
+export const nineN = require('./09n.png');
+export const tenD = require('./10d.png');
+export const tenN = require('./10n.png');
+export const elevenD = require('./11d.png');
+export const elevenN = require('./11n.png');
+export const thirteenD = require('./13d.png');
+export const thirteenN = require('./13n.png');
+export const fiftyD = require('./50d.png');
+export const fiftyN = require('./50n.png');
+export const unknown = require('./unknown.png');
+

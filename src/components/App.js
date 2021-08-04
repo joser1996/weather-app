@@ -17,14 +17,6 @@ const App = () => {
         icon: ""
     })
 
-    const getIcon = (iconId) => {
-        console.log("Icon: ", `../icons/${iconId}.png`);
-        import(`../icons/${iconId}.png`)
-            .then((module) => {
-                return module;
-            }).catch(e => console.log(e))
-    };
-
     useEffect(()=>{
         if (!city) return;
         if (!makingCalls) return;
@@ -38,17 +30,14 @@ const App = () => {
         fetch(url, init)
             .then(res => res.json())
             .then(body => {
-                console.log("Body: ", body)
                 const w = body['weather'][0];
-                console.log("Weather", w);
                 const temp = body.main.temp;
-                const iconMod = getIcon(w.icon);
-
+                console.log("Body: ", body)         
                 setWeather({
+                    icon: w.icon,
                     main: w.main,
                     description: w.description,
-                    temp: temp,
-                    icon: iconMod
+                    temp: temp
                 });
             })
             .catch(error => {

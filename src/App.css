@@ -94,3 +94,21 @@ body {
 .weather-card h2 {
     margin: 10px 0;
 }
+
+.weather-card h3 {
+    margin: 10px 0;
+}
+
+#temp {
+    border-top: 20px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.weather-icon img {
+    width: 100%;
+    height: auto;
+}
