@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaCity } from "react-icons/fa";
 
 const InputCity = (props) => {
 
@@ -27,7 +28,11 @@ const InputCity = (props) => {
                 value={inputText}
                 onChange={onChange}
             />
-            <button className="input-submit">Submit</button>
+            <button className="input-submit">
+                <FaCity 
+                    style={{color: "black", fontSize: "20px", marginTop: "2px"}}
+                />
+            </button>
         </form>
 
     );

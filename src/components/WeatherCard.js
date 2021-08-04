@@ -8,6 +8,8 @@ const WeatherCard = (props) => {
         const weekdays = ["Sunday", "Monday", "Wednesday", "Thursday", "Friday", "Sat", "Sun"];
         return weekdays[dayNumber];
     };
+
+
     return(
         <div className="weather-card">
             <h2>{getDay()}</h2>
@@ -15,8 +17,8 @@ const WeatherCard = (props) => {
             <div className="weather-icon">
                 <img alt="icon" src={logo} />
             </div>
-            <h3>{props.weatherProps.temp}</h3>
-            <h3>{props.weatherProps.description}</h3>
+            <h3>{props.weatherProps.temp}°F</h3>
+            <h3 style={{textTransform: "capitalize"}}>{props.weatherProps.description}</h3>
         </div>       
     );
 };

@@ -19,7 +19,78 @@ body {
     margin: 0 auto;
 }
 
+/* Title Component */
 .title-container {
     padding: 20px 0;
     line-height: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-container h1 {
+   font-size: 3rem;
+   color: #292B2B; 
+   padding: 10px;
+}
+
+.title-container h3 {
+    margin: 7px 0;
+    font-size: 1.4rem;
+    color: #292B2B;
+}
+
+/* Input component */
+.form-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    border-radius: calc(0.5 * 100px);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
+    justify-content: space-evenly;
+}
+
+.input-text {
+    font-size: 1rem;
+    font-weight: 400;
+    width: 85%;
+    padding-right: 5px;
+    padding-left: 10px;
+    border-radius: calc(0.5 * 100px);
+}
+
+.input-text::placeholder {
+    color: black;
+}
+
+.input-submit {
+    background: transparent;
+    color: #5b5b5b;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.input-text, .input-submit {
+    height: 40px;
+    outline: none;
+    border: none;
+}
+
+/* Weather Card */
+.weather-card {
+    width: 50%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 9px 3px 6px 0 rgba(0, 0, 50, 0.38);
+    min-height: 400px;
+    border-radius: calc(0.2 * 100px);
+}
+
+.weather-card h2 {
+    margin: 10px 0;
 }

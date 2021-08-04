@@ -8,16 +8,26 @@ import WeatherCard from "./WeatherCard";
 // dotenv.config();
 // console.log(process.env);
 const App = () => {
-
+    const makingCalls = true;
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState({
         main: "",
         description: "",
-        temp: ""
+        temp: "",
+        icon: ""
     })
+
+    const getIcon = (iconId) => {
+        console.log("Icon: ", `../icons/${iconId}.png`);
+        import(`../icons/${iconId}.png`)
+            .then((module) => {
+                return module;
+            }).catch(e => console.log(e))
+    };
 
     useEffect(()=>{
         if (!city) return;
+        if (!makingCalls) return;
         const eCity = encodeURIComponent(city);
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${eCity},US&units=imperial&appid=${process.env.REACT_APP_KEY}`;
         console.log("url", url);
@@ -32,16 +42,19 @@ const App = () => {
                 const w = body['weather'][0];
                 console.log("Weather", w);
                 const temp = body.main.temp;
+                const iconMod = getIcon(w.icon);
+
                 setWeather({
                     main: w.main,
                     description: w.description,
-                    temp: temp
+                    temp: temp,
+                    icon: iconMod
                 });
             })
             .catch(error => {
                 console.error('There was an issue with fetch', error);
             });
-    }, [city]);
+    }, [city, makingCalls]);
 
     const updateCity = (c) => {
         setCity(c);
