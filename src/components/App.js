@@ -19,7 +19,7 @@ const App = () => {
     useEffect(()=>{
         if (!city) return;
         const eCity = encodeURIComponent(city);
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${eCity}&units=imperial&appid=${process.env.REACT_APP_KEY}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${eCity},US&units=imperial&appid=${process.env.REACT_APP_KEY}`;
         console.log("url", url);
         const init = {
             'Content-Type': 'application/json',
