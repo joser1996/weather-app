@@ -17,8 +17,40 @@ const App = () => {
         icon: ""
     })
 
+
+    const getLocation = (position) => {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        console.log("Lat", lat, "Long", long)
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=${process.env.REACT_APP_KEY}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(body => {
+                const w = body['weather'][0];
+                const temp = body.main.temp;
+                setWeather({
+                    icon: w.icon,
+                    main: w.main,
+                    description: w.description,
+                    temp: temp
+                });
+            }).catch(err => console.error("Error: ", err));
+
+        setCity("Current City");
+    };  
+
+    useEffect(() => {
+        if (!city) {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(getLocation);
+            } else {
+                console.log("Not Available")
+            }
+        }
+    }, [city]);
+
     useEffect(()=>{
-        if (!city) return;
+        if (!city || city === "Current City") return;
         if (!makingCalls) return;
         const eCity = encodeURIComponent(city);
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${eCity},US&units=imperial&appid=${process.env.REACT_APP_KEY}`;
